@@ -1,0 +1,25 @@
+services:
+  app:
+    image: shubhamcodeedocker/docker-learn-app:latest
+
+    ports:
+      - "3000:3000"
+
+    environment:
+      - NODE_ENV=production
+
+    depends_on:
+      - database
+
+  mongo:
+    image: mongo:7-jammy
+
+    volumes:
+      - mongo-data
+
+    environment:
+      MONGO_INITDB_ROOT_USERNAME: root
+      MONGO_INITDB_ROOT_PASSWORD: example
+
+volumes:
+  mongo-data:
