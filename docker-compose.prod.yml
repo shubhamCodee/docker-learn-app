@@ -11,11 +11,11 @@ services:
     depends_on:
       - database
 
-  mongo:
+  database:
     image: mongo:7-jammy
 
     volumes:
-      - mongo-data
+      - mongo-data:/data/db
 
     environment:
       MONGO_INITDB_ROOT_USERNAME: root
